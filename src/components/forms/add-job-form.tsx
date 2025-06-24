@@ -16,7 +16,6 @@ import { Textarea } from "../ui/textarea";
 const formSchema = z.object({
   jobId: z.string().nonempty(),
   jobTitle: z.string().nonempty(),
-  jobDescription: z.string().nonempty(),
 });
 
 export function AddJobForm() {
@@ -25,7 +24,6 @@ export function AddJobForm() {
     defaultValues: {
       jobId: "",
       jobTitle: "",
-      jobDescription: "",
     },
   });
 
@@ -56,19 +54,6 @@ export function AddJobForm() {
               <FormLabel>Job Title</FormLabel>
               <FormControl>
                 <Input placeholder="Senior frontend developer" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="jobDescription"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Job Description</FormLabel>
-              <FormControl>
-                <Textarea {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

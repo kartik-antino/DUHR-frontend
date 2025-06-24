@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { DropZone } from "./dropzone";
 
-export function UploadFilesDialog() {
+export function UploadJD() {
   const [files, setFiles] = useState<File[]>([]);
   const [open, setOpen] = useState(false);
 
@@ -35,10 +35,10 @@ export function UploadFilesDialog() {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Upload Resumes</DialogTitle>
+          <DialogTitle>Upload JD</DialogTitle>
         </DialogHeader>
 
-        <DropZone files={files} setFiles={setFiles} />
+        <DropZone files={files} setFiles={setFiles} multiple={false} />
 
         <DialogFooter className="mt-4">
           <Button

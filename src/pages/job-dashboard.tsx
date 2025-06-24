@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import { DataTable } from "@/components/data-table";
 import { JobDialog } from "@/components/job-dialog";
 import { columns } from "@/components/jobs-column";
@@ -30,17 +29,17 @@ export default function JobDashboard() {
   const data = getData();
 
   return (
-    <Container>
+    <>
       <div className="flex justify-between mb-10">
         <div>
           <h1 className="text-2xl font-semibold">All Jobs</h1>
-          <p className="text-sm text-zinc-600">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
             All your jobs listed here with quick access to details and actions.
           </p>
         </div>
         <JobDialog />
       </div>
       <DataTable columns={columns} data={data} />
-    </Container>
+    </>
   );
 }
