@@ -18,7 +18,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export type StatusType = "Interview Scheduled" | "Pending" | "Rejected";
+export type StatusType =
+  | "Pending"
+  | "Interview Scheduled"
+  | "Rejected"
+  | "Selected";
 
 export default function StatusDropdown({ status }: { status: StatusType }) {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -50,7 +54,7 @@ export default function StatusDropdown({ status }: { status: StatusType }) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          {["Interview Scheduled", "Pending", "Rejected"].map(
+          {["Pending", "Interview Scheduled", "Rejected", "Selected"].map(
             (statusOption) => (
               <DropdownMenuItem
                 key={statusOption}

@@ -1,7 +1,5 @@
 import { Files, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router";
-import logo from "@/assets/antino-logo.webp";
-import darkLogo from "@/assets/antino-logo-dark.png";
 import {
   Sidebar,
   SidebarContent,
@@ -14,8 +12,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { THEME } from "@/constants";
-import { useTheme } from "@/contexts/theme-context";
+import Logo from "./logo";
+import { NavUser } from "./nav-user";
 import { ThemeToggle } from "./theme-toggle";
 
 const items = [
@@ -32,15 +30,10 @@ const items = [
 ];
 
 export function AppSidebar() {
-  const { theme } = useTheme();
   return (
     <Sidebar>
       <SidebarHeader className="py-5 px-5">
-        <img
-          src={theme === THEME.LIGHT ? logo : darkLogo}
-          alt="antino logo"
-          className="w-8/12"
-        />
+        <Logo />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -63,6 +56,7 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <ThemeToggle />
+        <NavUser user={{ email: "kartik@antino.com" }} />
       </SidebarFooter>
     </Sidebar>
   );

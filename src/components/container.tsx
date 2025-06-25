@@ -1,3 +1,3 @@
 export default function Container({ children }: { children: React.ReactNode }) {
-  return <div className="w-full mx-5 xl:mx-20 pt-10">{children}</div>;
+  return <div className="w-full mx-5 xl:mx-30 pt-10">{children}</div>;
 }

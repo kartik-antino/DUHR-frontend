@@ -1,0 +1,63 @@
+1. Create Job
+   endpoint: POST /jobs
+   description: This will create a job in our database
+   content-type: json
+   payload: job-id, job_title
+   response:
+   	{
+   	  "message": string,
+   	  "job_id": string,
+   	  "job_title": string
+   	}
+   	
+2. Upload resume
+   endpoint: POST /resumes/upload
+   description: Upload multiple resumes related to a job.
+   content-type: multipart/form-data
+   payload: files, job_id
+   response: 
+   	{
+   	  "message": string
+   	}
+
+3. Upload JD
+   endpoint: POST /jobs/:job_id/upload-jd
+   description: upload a JD for a job
+   content-type: multipart/form-data
+   payload: file, job_id
+   response: 
+   	{
+   	  "message": string
+   	}
+
+5. Get all matched resumes
+   endpoint: GET /jobs/:job_id
+   description: This will return all details related to the job along with matched resumes
+   response: 
+   	{
+   	  "message": string,
+   	  "job_id": string,
+   	  "job_title": string,
+   	  "matched_resume": [
+   	  		{
+   	  		  resume_id: string,
+   	  		  name: string,
+   	  		  email: string,
+   	  		  phone_number: string,
+   	  		  resume_link: string,
+   	  		  status: string
+   	  		},
+   		]
+   	}
+
+6. Change candidate status
+   endpoint: PATCH /resumes/:resume_id/status
+   description: Update status of the candidate (shortlisted, interview scheduled, selected, rejected).
+   content-type: json
+   payload: status (shortlisted, interview scheduled, selected, rejected)
+   response: 
+   	{
+   	  "message": string
+   	  "resume_id": string,
+   	  "status": string
+   	}
